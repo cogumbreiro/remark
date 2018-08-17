@@ -28,4 +28,19 @@ describe('Converter', function () {
     converter.convertMarkdown(content, links).should.equal(
       '<p><a href="url" title="title">link</a></p>');
   });
+
+  it('should leave LaTeX alone', function () {
+    var content = ['$`a_1 b_{2}`$'];
+
+    converter.convertMarkdown(content).should.equal(
+      '<p>$a_1 b_{2}$</p>');
+  });
+
+  it('should leave LaTeX alone (display)', function () {
+    var content = ['```math\na_1 b_{2}\n```'];
+
+    converter.convertMarkdown(content).should.equal(
+      '$$a_1 b_{2}\n$$');
+  });
+
 });
