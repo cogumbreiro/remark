@@ -43,7 +43,7 @@ target.test = function () {
 
 target.lint = function () {
   console.log('Linting...');
-  run('jshint src');
+  run('jshint src', {silent: false});
 };
 
 target.bundle = function () {
